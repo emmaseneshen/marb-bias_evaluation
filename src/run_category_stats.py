@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     results_dir = Path("results") / category
 
-    diff_files = sorted(results_dir.glob("*_diffs.csv"))
+    diff_files = sorted(results_dir.glob("*person_only_diffs.csv"))
 
     if len(diff_files) == 0:
         raise FileNotFoundError(f"No *_diffs.csv files found in {results_dir}")

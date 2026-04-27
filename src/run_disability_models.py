@@ -65,6 +65,9 @@ sys.path.append(str(MARB_CODE_DIR))
 from utils import evaluate_masked, evaluate_autoregressive  # noqa: E402
 print("IMPORTED MARB UTILS")
 
+# import function to compute disability differences
+from compute_disability_diffs import compute_diffs
+
 def get_default_dataset_path() -> Path:
     """
     Returns the default path to the disability dataset in your repo.
@@ -181,8 +184,19 @@ def run_one_model(
     # Run the model evaluation
     df_scores = eval_fn(eval_args)
 
+    # Save the raw PPL / PPPL scores
+    results_path = output_dir / f"{model_name}_disability_results.csv"
+    df_scores.to_csv(results_path, index=False)
+
+    # Compute disability descriptor score - original score
+    diffs_path = output_dir / f"{model_name}_disability_diffs.csv"
+    compute_diffs(results_path, diffs_path)
+
     print(f"Finished {model_name}.")
     print(f"Output shape: {df_scores.shape}")
+    print(f"Saved raw results to: {results_path}")
+    print(f"Saved diff results to: {diffs_path}")
+
     return df_scores
 
 

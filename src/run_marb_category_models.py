@@ -159,6 +159,9 @@ def main():
 
     device = choose_device(args.device)
 
+    # Force CPU for RoBERTa to avoid MPS out-of-memory crashes
+    device = "cpu"
+
     if not input_csv.exists():
         raise FileNotFoundError(f"Could not find dataset file: {input_csv}")
 
@@ -175,11 +178,25 @@ def main():
     print("Columns:", df_debug.columns.tolist())
     print(df_debug.head(2))
 
+    # ----------------------------------------
+    # FILTER TO "person" ROWS ONLY (2–9501)
+    # ----------------------------------------
+    df_debug = df_debug.iloc[1:9501]
+
+    print(f"\nFiltered to person rows: {len(df_debug)} rows")
+
+    # Save filtered dataset to a temporary file
+    filtered_csv = output_dir / f"{category}_person_only.csv"
+    df_debug.to_csv(filtered_csv, index=False)
+
+    # Use filtered CSV going forward
+    input_csv = filtered_csv
+
     print(f"Results directory: {output_dir}")
     print(f"Device: {device}")
     print(f"Subset size: {args.n_ex if args.n_ex is not None else 'full dataset'}")
 
-    model_names = ["bert", "roberta", "gpt2"]
+    model_names = ["bert"]
 
     for model_name in model_names:
         run_one_model(

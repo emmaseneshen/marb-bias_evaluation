@@ -27,7 +27,6 @@ def compute_diffs(input_path, output_path):
         diff_col = f"{descriptor}_diff"
         
         # Difference = (marked sentence score) - (original sentence score)
-        # This matches your step 3 definition :contentReference[oaicite:0]{index=0}
         df[diff_col] = df[descriptor] - df["original"]
 
     # Make sure the output folder exists
@@ -42,9 +41,8 @@ def compute_diffs(input_path, output_path):
 if __name__ == "__main__":
     # Change this to run for each model: "bert", "roberta", "gpt2"
     files = [
-        "bert-base-uncased_PPPL_all-tokens_100-ex_disability.csv",
-        "roberta-base_PPPL_all-tokens_100-ex_disability.csv",
-        "gpt2_PPL_100-ex_disability.csv",
+    "roberta-base_PPPL_all-tokens_all-ex_disability_person_only.csv",
+    "gpt2_PPL_all-ex_disability_person_only.csv",
     ]
 
     for filename in files:

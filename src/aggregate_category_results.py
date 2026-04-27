@@ -6,9 +6,9 @@ from pathlib import Path
 def aggregate_results(category):
     results_dir = Path("results") / category
 
-    # Load the stats files (must match your naming pattern exactly)
-    bert = pd.read_csv(results_dir / f"bert-base-uncased_{category}_stats.csv")
-    roberta = pd.read_csv(results_dir / f"roberta-base_{category}_stats.csv")
+    # Load the stats files
+    bert = pd.read_csv(results_dir / f"bert_{category}_stats.csv")
+    roberta = pd.read_csv(results_dir / f"roberta_{category}_stats.csv")
     gpt2 = pd.read_csv(results_dir / f"gpt2_{category}_stats.csv")
 
     # Combine into one dataframe

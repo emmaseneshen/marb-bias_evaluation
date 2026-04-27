@@ -10,7 +10,10 @@ FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_summary_results():
-    df = pd.read_csv(RESULTS_DIR / "all_models_disability_summary.csv")
+    gpt2 = pd.read_csv(RESULTS_DIR / "gpt2_disability_stats.csv")
+    roberta = pd.read_csv(RESULTS_DIR / "roberta_disability_stats.csv")
+
+    df = pd.concat([gpt2, roberta], ignore_index=True)
     return df
 
 
@@ -27,16 +30,15 @@ def plot_effect_size_boxplot(df):
         y="rank_biserial_r"
     )
 
-    # Add reference line at 0
     plt.axhline(0, linestyle="--")
 
     plt.xlabel("Model")
     plt.ylabel("Effect size (rank-biserial r)")
-    plt.title("Spread of Disability Effect Sizes by Model")
+    plt.title("Spread of Disability Effect Sizes by Model (Person-Only)")
     plt.ylim(-1.05, 1.05)
     plt.tight_layout()
 
-    output_path = FIGURES_DIR / "disability_effect_size_boxplot.png"
+    output_path = FIGURES_DIR / "disability_effect_size_boxplot_person_only.png"
     plt.savefig(output_path, dpi=300)
     plt.close()
 
@@ -58,17 +60,16 @@ def plot_descriptor_effects(df):
         marker="o"
     )
 
-    # Add reference line at 0
     plt.axhline(0, linestyle="--")
 
     plt.xlabel("Disability descriptor")
     plt.ylabel("Effect size (rank-biserial r)")
-    plt.title("Disability Effect Size by Descriptor and Model")
+    plt.title("Disability Effect Size by Descriptor and Model (Person-Only)")
     plt.ylim(-1.05, 1.05)
     plt.xticks(rotation=60, ha="right")
     plt.tight_layout()
 
-    output_path = FIGURES_DIR / "disability_descriptor_effects.png"
+    output_path = FIGURES_DIR / "disability_descriptor_effects_person_only.png"
     plt.savefig(output_path, dpi=300)
     plt.close()
 
