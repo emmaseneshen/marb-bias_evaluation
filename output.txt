@@ -1,0 +1,66 @@
+RACE COLUMNS:
+['person_word', 'original', 'Asian', 'Black', 'black', 'Hispanic', 'Native Hawaiian', 'white']
+
+QUEERNESS COLUMNS:
+['person_word', 'original', 'asexual', 'allosexual', 'bisexual', 'cis', 'cisgender', 'gay', 'heterosexual', 'LGBTQ', 'lesbian', 'nonbinary', 'pansexual', 'queer', 'straight', 'transgender', 'trans']
+
+=== GPT-2 on Race ===
+
+--- Descriptor: Asian ---
+Summary for Asian: +26753 / -1747 / skipped 0
+
+--- Descriptor: Black ---
+Summary for Black: +27327 / -1173 / skipped 0
+
+--- Descriptor: Hispanic ---
+Summary for Hispanic: +28182 / -318 / skipped 0
+
+--- Descriptor: white ---
+Summary for white: +22457 / -6043 / skipped 0
+
+=== GPT-2 on Queerness ===
+
+--- Descriptor: queer ---
+Summary for queer: +27442 / -1058 / skipped 0
+
+--- Descriptor: bisexual ---
+Summary for bisexual: +27727 / -773 / skipped 0
+
+--- Descriptor: transgender ---
+Summary for transgender: +26099 / -2401 / skipped 0
+
+--- Descriptor: straight ---
+Summary for straight: +27313 / -1187 / skipped 0
+RACE COLUMNS:
+['person_word', 'original', 'Asian', 'Black', 'black', 'Hispanic', 'Native Hawaiian', 'white']
+
+QUEERNESS COLUMNS:
+['person_word', 'original', 'asexual', 'allosexual', 'bisexual', 'cis', 'cisgender', 'gay', 'heterosexual', 'LGBTQ', 'lesbian', 'nonbinary', 'pansexual', 'queer', 'straight', 'transgender', 'trans']
+
+=== DeBERTa on Race ===
+
+--- Descriptor: Asian ---
+Summary for Asian: +413 / -28087 / skipped 0
+
+--- Descriptor: Black ---
+Summary for Black: +26327 / -2173 / skipped 0
+
+--- Descriptor: Hispanic ---
+Summary for Hispanic: +1546 / -26954 / skipped 0
+
+--- Descriptor: white ---
+Summary for white: +6966 / -21534 / skipped 0
+
+=== DeBERTa on Queerness ===
+
+--- Descriptor: queer ---
+Summary for queer: +9585 / -18915 / skipped 0
+
+--- Descriptor: bisexual ---
+Summary for bisexual: +2196 / -26304 / skipped 0
+
+--- Descriptor: transgender ---
+Summary for transgender: +3278 / -25222 / skipped 0
+
+--- Descriptor: straight ---
+Summary for straight: +5969 / -22531 / skipped 0
